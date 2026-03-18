@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sie L Pale Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Logo -->
+        <img src="images/calculator.PNG" alt="Calculator Logo">
+
+        <h2>Sie L Pale</h2>
+        <h3>Calculator</h3>
+
+        <!-- Inputs -->
+        <input type="number" id="miles" placeholder="Miles Traveled">
+        <input type="number" id="gallons" placeholder="Gallons Used">
+
+        <!-- Button -->
+        <button onclick="calculateMPG()">Calculate</button>
+
+        <!-- Output -->
+        <div id="result"></div>
+    </div>
+
+    <script>
+function calculateMPG() {
+    let miles = document.getElementById("miles").value;
+    let gallons = document.getElementById("gallons").value;
+
+    if (miles === "" || gallons === "") {
+        document.getElementById("result").innerHTML = "Please enter both values.";
+        return;
+    }
+
+    let mpg = miles / gallons;
+
+    document.getElementById("result").innerHTML =
+        "Miles Per Gallon: " + mpg.toFixed(2);
+}
+    </script>
+
+</body>
+</html>
