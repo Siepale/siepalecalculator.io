@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrik Denou | The Promise</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="top-bar">
+        <img src="images/logo.jpeg" alt="Afrik Denou Logo" class="logo">
+
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="index.html">Home</a>
+
+            <!-- Dropdown / Flyout -->
+            <div class="dropdown">
+                <a href="#">About ▾</a>
+                <div class="dropdown-content">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                </div>
+            </div>
+
+            <a href="services.html">Our Service</a>
+            <a href="calculator.html">MPG Calculator</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <div class="hero">
+        <img src="images/mypicture.jpeg" alt="Artist portrait" class="hero-image">
+    </div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="content">
+        <h1>The Promise</h1>
+        <p>
+            Welcome to the creative universe of La Compagnie Afrik Denou, a space where storytelling, music, theater, and visual art come together to give life to powerful animated narratives inspired by African cultures and imagination.
+        </p>
+
+        <p>
+            This website invites you to discover our animated film project, a journey of images, sounds, and emotions that celebrates heritage, creativity, and the transmission of stories across generations.
+        </p>
+
+        <img src="images/pictureenfant.jpeg" alt="Child illustration from animated project" class="inline-image">
+
+        <p>
+            More than a film, this project is a meeting point between artistic disciplines: storytelling, theater, music, and puppetry.
+        </p>
+
+        <p class="highlight">
+            Enter the world of Afrik Denou — where stories move, voices resonate, and imagination becomes image.
+        </p>
+
+        <!-- Bio Section -->
+        <section class="bio">
+            <h2>Short Bio</h2>
+            <p>
+                I am Sie L. Pale from Burkina Faso. I am an artist, puppeteer, storyteller, and musician dedicated to bringing stories to life through movement, voice, and sound.
+            </p>
+        </section>
+
+        <!-- Gallery Preview -->
+        <div class="gallery-preview">
+            <img src="images/picture1.jpeg" alt="Concept art 1">
+            <img src="images/picture2.jpg" alt="Concept art 2">
+            <img src="images/picture3.jpeg" alt="Concept art 3">
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>© 2026 Afrik Denou. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="resume.html">Resume</a>
+            <a href="services.html">Our Service</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <!-- ================= MOBILE MENU SCRIPT ================= -->
+    <script>
+        const menu = document.getElementById("mobile-menu");
+        const nav = document.querySelector(".nav");
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        // Toggle main menu
+        menu.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+
+        // Toggle dropdowns on mobile
+        dropdowns.forEach(drop => {
+            const link = drop.querySelector("a");
+            link.addEventListener("click", (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    drop.querySelector(".dropdown-content").classList.toggle("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+

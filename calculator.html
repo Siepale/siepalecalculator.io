@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPG Calculator - Sie L Pale</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Additional CSS for MPG Calculator -->
+    <style>
+        /* Calculator container styling */
+        .calculator-container {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 25px;
+            background: #fff8ef;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 5px solid var(--gold);
+        }
+
+            .calculator-container h2 {
+                margin-bottom: 5px;
+                color: var(--dark);
+            }
+
+            .calculator-container h3 {
+                margin-top: 0;
+                margin-bottom: 20px;
+                color: var(--text-dark);
+                font-weight: 500;
+            }
+
+            .calculator-container input {
+                width: 90%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 16px;
+            }
+
+            .calculator-container button {
+                padding: 10px 20px;
+                background: var(--gold);
+                color: var(--dark);
+                border: none;
+                border-radius: 6px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+                .calculator-container button:hover {
+                    background: #b8932a;
+                }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .calculator-logo {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="top-bar">
+        <img src="images/logo.jpeg" alt="Afrik Denou Logo" class="logo">
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">About ▾</a>
+                <div class="dropdown-content">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                </div>
+            </div>
+            <a href="services.html">Our Service</a>
+            <a href="calculator.html">MPG Calculator</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="content">
+        <h1>MPG Calculator</h1>
+
+        <div class="calculator-container">
+            <img src="images/calculator.png" alt="Calculator Logo" class="calculator-logo">
+            <h2>Sie L Pale</h2>
+            <h3>Fuel Efficiency Tool</h3>
+
+            <input type="number" id="miles" placeholder="Miles Traveled">
+            <input type="number" id="gallons" placeholder="Gallons Used">
+
+            <button onclick="calculateMPG()">Calculate MPG</button>
+
+            <div id="result"></div>
+
+            <p class="footer">Enter miles and gallons to calculate fuel efficiency</p>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>© 2026 Afrik Denou. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="resume.html">Resume</a>
+            <a href="services.html">Our Service</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <!-- ================= MOBILE MENU SCRIPT ================= -->
+    <script>
+        const menu = document.getElementById("mobile-menu");
+        const nav = document.querySelector(".nav");
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        menu.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+
+        dropdowns.forEach(drop => {
+            const link = drop.querySelector("a");
+            link.addEventListener("click", (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    drop.querySelector(".dropdown-content").classList.toggle("active");
+                }
+            });
+        });
+
+        // ================= MPG Calculator Script =================
+        function calculateMPG() {
+            let miles = document.getElementById("miles").value;
+            let gallons = document.getElementById("gallons").value;
+
+            if (miles === "" || gallons === "") {
+                document.getElementById("result").innerHTML = "Please enter both values.";
+                return;
+            }
+
+            let mpg = miles / gallons;
+            document.getElementById("result").innerHTML = "Miles Per Gallon: " + mpg.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

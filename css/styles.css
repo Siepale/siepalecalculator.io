@@ -1,0 +1,283 @@
+﻿/* =========================
+   COLOR VARIABLES
+========================= */
+:root {
+    --dark: #111;
+    --cream: #f5f1e8;
+    --soft-beige: #e8dcc7;
+    --gold: #d4af37;
+    --text-dark: #222;
+    --white: #ffffff;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.7;
+}
+
+/* =========================
+   HEADER & NAVIGATION
+========================= */
+.top-bar {
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logo {
+    height: 70px;
+    background: var(--white);
+    padding: 6px;
+    border-radius: 8px;
+}
+
+/* Navigation container */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+    /* Navigation links */
+    .nav a {
+        color: var(--white);
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+        /* Smooth underline rollover effect */
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav a:hover {
+            color: var(--gold);
+        }
+
+/* =========================
+   DROPDOWN MENU / FLYOUT
+========================= */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--white);
+    min-width: 170px;
+    top: 35px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+    .dropdown-content a {
+        color: var(--text-dark);
+        padding: 10px;
+        display: block;
+        font-weight: normal;
+    }
+
+        .dropdown-content a:hover {
+            background: var(--soft-beige);
+        }
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    text-align: center;
+    background: linear-gradient(to bottom, var(--soft-beige), transparent);
+    padding: 40px 20px;
+}
+
+.hero-image {
+    width: 220px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transition: transform 0.4s ease;
+}
+
+    .hero-image:hover {
+        transform: scale(1.05);
+    }
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.content {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.inline-image {
+    display: block;
+    margin: 30px auto;
+    max-width: 320px;
+    border-radius: 12px;
+}
+
+.highlight {
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* =========================
+   BIO SECTION
+========================= */
+.bio {
+    background: #fff8ef;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 40px;
+    border-left: 5px solid var(--gold);
+}
+
+/* =========================
+   GALLERY PREVIEW GRID
+========================= */
+.gallery-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+    .gallery-preview img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .gallery-preview img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: var(--white);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .footer-links a:hover {
+        color: var(--gold);
+    }
+
+/* =========================
+   MOBILE MENU TOGGLE
+========================= */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        background: var(--dark);
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 220px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+        .nav.active {
+            display: flex;
+        }
+
+        .nav a {
+            margin: 10px 0;
+        }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: var(--cream);
+    }
+
+        .dropdown-content.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .hero-image {
+        width: 180px;
+    }
+}
